@@ -4,6 +4,7 @@
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
+
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
@@ -16,7 +17,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+let cumLaudeGrades = 0;
 
+for(let i = 0; i <= grades.length-1; i++) {
+
+    if( i >= 8 ) {
+        cumLaudeGrades = cumLaudeGrades +1;
+    }
+}
+
+console.log(cumLaudeGrades);
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -26,7 +36,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
+function cumLaude(arrayGrades) {
+    let number = 0;
 
+    for (let i = 0; i < grades.length; i++) {
+        if (arrayGrades[i] >= 8) {
+            number = number + 1;
+        }
+
+    }
+    return number;
+}
+
+const number1 = cumLaude(grades);
+const number2 = cumLaude([6, 4, 5]);
+const number3 = cumLaude([8, 9, 4, 6, 10]);
+
+console.log(number1, number2, number3);
 
 
 
@@ -41,8 +67,12 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+let averageTotal = 0;
+for (let i = 0; i < grades.length; i++) {
+    averageTotal = averageTotal + grades[i];
+}
 
-
+console.log(averageTotal / grades.length);
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -52,12 +82,27 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade(grades) geeft 6.642857142857143
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
+function averageGrade(arrayGrades) {
+    let total = 0;
+
+    for (let i = 0; i < arrayGrades.length; i++) {
+        total = total + arrayGrades[i];
+    }
+    return total / arrayGrades.length;
+}
+
+const averageA = averageGrade(grades);
+const averageB = averageGrade([6, 4, 5]);
+const averageC = averageGrade([8, 9, 4, 6, 10]);
+
+console.log(averageA, averageB, averageC);
+
 
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
+console.log(averageA.toFixed(2));
 
 
 
@@ -82,3 +127,5 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+
